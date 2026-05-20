@@ -1,19 +1,20 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: Arial, sans-serif;
 }
 
-body {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    overflow: hidden;
+body{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  overflow:hidden;
 }
 
+/* circles */
 .circle{
   position:absolute;
   border-radius:50%;
@@ -45,110 +46,101 @@ body {
 }
 
 @keyframes float{
-  0%{
-    transform:translateY(0px);
-  }
-  50%{
-    transform:translateY(-20px);
-  }
-  100%{
-    transform:translateY(0px);
-  }
+  0%,100%{ transform:translateY(0px); }
+  50%{ transform:translateY(-20px); }
 }
 
-
-.container {
-    position: relative;
-    padding: 40px;
-    width: 380px;
-    background: rgb(255, 255, 285, 0.15);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgb(0, 0, 0, 0.3);
-    animation: slideIn 1s ease;
+/* container */
+.container{
+  width:380px;
+  padding:40px;
+  background: rgba(255,255,255,0.15);
+  backdrop-filter: blur(10px);
+  border-radius:20px;
+  box-shadow:0 8px 32px rgba(0,0,0,0.3);
+  animation: slideIn 1s ease;
 }
 
-
-@keyframes slideIn {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+@keyframes slideIn{
+  from{ opacity:0; transform:translateY(50px); }
+  to{ opacity:1; transform:translateY(0); }
 }
 
-.container h1 {
-    text-align: center;
-    color: white;
-    margin-bottom: 25px;
-    font-size: 32px;
+h1{
+  text-align:center;
+  color:white;
+  margin-bottom:25px;
 }
 
-.input-box {
-    position: relative;
-    margin-bottom: 25px;
+/* inputs */
+.input-box{
+  margin-bottom:18px;
 }
 
-.input-box input {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    outline: none;
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    font-size: 16px;
-    transition: 0.3s;
+.input-box input{
+  width:100%;
+  padding:14px;
+  border:none;
+  outline:none;
+  border-radius:10px;
+  background: rgba(255,255,255,0.2);
+  color:white;
+  font-size:16px;
+  transition:0.3s;
 }
 
-.input-box input::placeholder {
-    color: #eee;
+.input-box input::placeholder{
+  color:#eee;
 }
 
-
-.input-box input:focus {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.03);
+.input-box input:focus{
+  transform:scale(1.03);
+  background: rgba(255,255,255,0.3);
 }
 
-#btn {
-    width: 100%;
-    padding: 14px;
-    border: none;
-    border-radius: 10px;
-    background: white;
-    color: #764ba2;
-    font-size: 18px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.4s;
-
+/* password info */
+.password-info{
+  display:block;
+  margin-bottom:20px;
+  color:#f1f1f1;
+  font-size:12px;
+  line-height:1.5;
 }
 
-#btn:hover{
+/* button */
+.btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:10px;
+  background:white;
+  color:#764ba2;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.btn:hover{
   background:#764ba2;
   color:white;
   transform:translateY(-3px);
-  box-shadow:0 5px 15px rgba(0,0,0,0.3);
 }
 
+/* message */
 .message{
-  margin-top:20px;
+  margin-top:15px;
   text-align:center;
-  color:white;
-  font-size:16px;
+  font-size:14px;
   opacity:0;
-  transition:0.5s;
+  transition:0.4s;
 }
 
 .message.show{
   opacity:1;
 }
 
+/* login */
 .login-link{
   text-align:center;
   margin-top:15px;
@@ -156,11 +148,7 @@ body {
 }
 
 .login-link a{
-  color:#fff;
-  text-decoration:none;
+  color:white;
   font-weight:bold;
-}
-
-.login-link a:hover{
-  text-decoration:underline;
+  text-decoration:none;
 }

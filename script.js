@@ -2,65 +2,54 @@ const form = document.getElementById("signupForm");
 const message = document.getElementById("message");
 
 form.addEventListener("submit", function (e) {
-
   e.preventDefault();
 
   const name = document.getElementById("name").value.trim();
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value.trim();
+  const confirmPassword = document.getElementById("confirmPassword").value.trim();
 
   // Email Regex
-  const emailRegex =
-    /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-  // Password Regex
-  // Minimum 8 chars
-  // At least 1 uppercase
-  // At least 1 lowercase
-  // At least 1 number
-  // At least 1 special character
+  // Strong Password Regex
+  const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
 
-  const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-
-  // Name Validation
+  // Name check
   if (name === "") {
-    showMessage("Please enter your name", "red");
-    return;
+    return showMessage("Name is required", "red");
   }
 
-  // Email Validation
+  // Email check
   if (!emailRegex.test(email)) {
-    showMessage("Invalid email address", "red");
-    return;
+    return showMessage("Invalid email format", "red");
   }
 
-  // Password Validation
+  // Password check
   if (!passwordRegex.test(password)) {
-    showMessage(
-      "Password must contain 8 characters, uppercase, lowercase, number & special character",
+    return showMessage(
+      "Password must be 8+ chars with upper, lower, number & special character",
       "red"
     );
-    return;
   }
 
-  // Success Message
-  showMessage("Account Created Successfully 🎉", "lightgreen");
+  // Confirm password check
+  if (password !== confirmPassword) {
+    return showMessage("Passwords do not match", "red");
+  }
 
-  // Reset Form
+  // Success
+  showMessage("Account Created Successfully 🎉", "lightgreen");
   form.reset();
 });
 
-
-// Function for Message
+// message function
 function showMessage(text, color) {
-
   message.innerText = text;
   message.style.color = color;
-
   message.classList.add("show");
 
   setTimeout(() => {
     message.classList.remove("show");
-  }, 4000);
+  }, 3000);
 }
